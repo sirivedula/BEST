@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Best.master.cs" Inherits="BaliEnterpriseSystems.Best" EnableViewState="false" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Best Main</title>
+    <script src="js/jquery-1.5.min.js?20111008" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.8.9.custom.min.js?20110305" type="text/javascript"></script>
+    <script src="js/bestGrid.js?20110521" type="text/javascript"></script>
+    <script src="js/jquery.maskedinput-1.2.2.js?20110314" type="text/javascript"></script>
+    <script src="js/jqModal.js?20110702" type="text/javascript"></script>
+    <script src="js/SiteCommon.js?20110511" type="text/javascript"></script>
+    <link rel="Stylesheet" href="js/jquery-ui-1.8.10.custom.css?20110305" />
+    <link rel="Stylesheet" href="js/Grid.css?20110320" type="text/css" />
+    <link  href="js/jqModal.css?20110702" rel="stylesheet" type="text/css" />
+    <link  href="js/MasterStyles.css?20110611" rel="stylesheet" type="text/css" />
+    <link  href="js/InnerStyles.css?20110611" rel="stylesheet" type="text/css" />
+    
+    <style type="text/css">
+        .tblreports { background-color:#D3E9DC; font-family:Times New Roman; width:50%; border:1px solid #000; }
+        .tblreports th { background-color:#6FA987; color:#ffffff; border-bottom:1px solid #6FA987; border-right:1px solid #6FA987; font-weight:bold; padding:2px; }
+        .tblreports td { border-bottom:1px solid #6FA987; border-right:1px solid #6FA987; }
+        .centered { margin-bottom:50px; }
+    </style>
+    <link rel="Stylesheet" href="js/jscssoverride.css?20110315" />
+    
+    <script type="text/javascript">
+        var gridJS = [];
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">        
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color:#F7F8F5">
+    <form id="form1" runat="server">
+    <div style="width:100%;">
+        <asp:PlaceHolder runat="server" ID="phHeader">
+            <div id="InnerTopWraper">
+                <div class="TopCenDiv">
+	                <div class="Logo"></div>
+                    <div class="TopR">                        
+    	                <div style="font-family:Tahoma;font-weight:bold;font-size:12px;color:#FFF;padding-right:400px;"><asp:Literal ID="ltrChangeCenter" runat="server"></asp:Literal></div>
+    	                <div class="UCDiv" style="float:right;">
+        	                <a href="Logout.aspx" class="Logout" style="padding-right:10px;">Logout <asp:Literal ID="ltrUserName" runat="server"></asp:Literal></a><a href="ChangePassword.aspx" class="User">User Prefrences</a>
+                        </div>
+                    </div>
+                    <div class="PrimaryNav">
+                        <ul>
+                            <asp:Literal ID="ltrMainMenu" runat="server">
+                            </asp:Literal>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </asp:PlaceHolder>
+        
+        <div>    
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+   
+            </asp:ContentPlaceHolder>
+        </div>
+        
+        <div>            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <asp:PlaceHolder runat="server" ID="phFooter">
+            <div id="FooterDiv">
+                <div class="FootNoteL">&copy; 2011 - Bali Enterprise System - <a href="http://balilearning.com/terms_conditions.html">Terms &amp; Conditions</a> - <a href="mailto:udaybali@gmail.com">udaybali@gmail.com</a></div>
+                <div class="FootNoteR">Bali Learning Center, 2808 Park Ave. Suite C Merced CA 95348</div>
+            </div>
+        </asp:PlaceHolder>
+        
+        <input type="hidden" id="SaveClicked" name="SaveClicked" />
+        </div>
+    </form>
+    
+<div id="progressbardiv" class="jqmOuter">
+	<div class="jqmNotice">
+		<div class="jqmnContent" id="progressbarcontent">
+			<br>
+		</div>
+	</div>
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA227651-CD0E-41D7-A617-21F5A00F7096}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BaliEnterpriseSystems</RootNamespace>
+    <AssemblyName>BaliEnterpriseSystems</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Login.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Best.Master.cs">
+      <DependentUpon>Best.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Best.Master.designer.cs">
+      <DependentUpon>Best.Master</DependentUpon>
+    </Compile>
+    <Compile Include="BestCenterInfo.aspx.cs">
+      <DependentUpon>BestCenterInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestCenterInfo.aspx.designer.cs">
+      <DependentUpon>BestCenterInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestExportToExcel.aspx.cs">
+      <DependentUpon>BestExportToExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestExportToExcel.aspx.designer.cs">
+      <DependentUpon>BestExportToExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestMassEMail.aspx.cs">
+      <DependentUpon>BestMassEMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestMassEMail.aspx.designer.cs">
+      <DependentUpon>BestMassEMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestObjects\BestCenters.cs" />
+    <Compile Include="BestObjects\BestDatabase.cs" />
+    <Compile Include="BestObjects\BestDocuments.cs" />
+    <Compile Include="BestObjects\BestEMail.cs" />
+    <Compile Include="BestObjects\BestEMailTemplate.cs" />
+    <Compile Include="BestObjects\BestExportFields.cs" />
+    <Compile Include="BestObjects\BestExports.cs" />
+    <Compile Include="BestObjects\BestExportTables.cs" />
+    <Compile Include="BestObjects\BestField.cs" />
+    <Compile Include="BestObjects\BestGrid.cs" />
+    <Compile Include="BestObjects\BestLogins.cs" />
+    <Compile Include="BestObjects\BestMessages.cs" />
+    <Compile Include="BestObjects\BestPreferedSchedule.cs" />
+    <Compile Include="BestObjects\BestPrograms.cs" />
+    <Compile Include="BestObjects\BestSchedules.cs" />
+    <Compile Include="BestObjects\BestServices.cs" />
+    <Compile Include="BestObjects\BestSTPlan.cs" />
+    <Compile Include="BestObjects\BestStudentGPA.cs" />
+    <Compile Include="BestObjects\BestStudentNotes.cs" />
+    <Compile Include="BestObjects\BestStudentPayment.cs" />
+    <Compile Include="BestObjects\BestStudentPickup.cs" />
+    <Compile Include="BestObjects\BestStudentPicture.cs" />
+    <Compile Include="BestObjects\BestStudentPrograms.cs" />
+    <Compile Include="BestObjects\BestStudentReference.cs" />
+    <Compile Include="BestObjects\BestStudents.cs" />
+    <Compile Include="BestObjects\BestSuspicion.cs" />
+    <Compile Include="BestObjects\BestTable.cs" />
+    <Compile Include="BestObjects\BestTutorNotes.cs" />
+    <Compile Include="BestObjects\BestTutors.cs" />
+    <Compile Include="BestObjects\BestUser.cs" />
+    <Compile Include="BestObjects\BestUserPrefs.cs" />
+    <Compile Include="BestObjects\CurrentUser.cs" />
+    <Compile Include="BestObjects\LogChanges.cs" />
+    <Compile Include="BestObjects\PaymentDetails.cs" />
+    <Compile Include="BestObjects\PaymentTypes.cs" />
+    <Compile Include="BestObjects\ProgramTypes.cs">
+    </Compile>
+    <Compile Include="BestObjects\UserRoles.cs" />
+    <Compile Include="BestPaymentTypes.aspx.cs">
+      <DependentUpon>BestPaymentTypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestPaymentTypes.aspx.designer.cs">
+      <DependentUpon>BestPaymentTypes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestServicesInfo.aspx.cs">
+      <DependentUpon>BestServicesInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestServicesInfo.aspx.designer.cs">
+      <DependentUpon>BestServicesInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestSiteError.aspx.cs">
+      <DependentUpon>BestSiteError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestSiteError.aspx.designer.cs">
+      <DependentUpon>BestSiteError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestStudentPictures.aspx.cs">
+      <DependentUpon>BestStudentPictures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestStudentPictures.aspx.designer.cs">
+      <DependentUpon>BestStudentPictures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestStudentPlan.aspx.cs">
+      <DependentUpon>BestStudentPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestStudentPlan.aspx.designer.cs">
+      <DependentUpon>BestStudentPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestStudentSchedule.aspx.cs">
+      <DependentUpon>BestStudentSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestStudentSchedule.aspx.designer.cs">
+      <DependentUpon>BestStudentSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestStudentUser.aspx.cs">
+      <DependentUpon>BestStudentUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestStudentUser.aspx.designer.cs">
+      <DependentUpon>BestStudentUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestTutorPlan.aspx.cs">
+      <DependentUpon>BestTutorPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestTutorPlan.aspx.designer.cs">
+      <DependentUpon>BestTutorPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestTutorSchedule.aspx.cs">
+      <DependentUpon>BestTutorSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestTutorSchedule.aspx.designer.cs">
+      <DependentUpon>BestTutorSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestUploader.aspx.cs">
+      <DependentUpon>BestUploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestUploader.aspx.designer.cs">
+      <DependentUpon>BestUploader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BestWelcome.aspx.cs">
+      <DependentUpon>BestWelcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BestWelcome.aspx.designer.cs">
+      <DependentUpon>BestWelcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeCenter.aspx.cs">
+      <DependentUpon>ChangeCenter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeCenter.aspx.designer.cs">
+      <DependentUpon>ChangeCenter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeLog.aspx.cs">
+      <DependentUpon>ChangeLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeLog.aspx.designer.cs">
+      <DependentUpon>ChangeLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadDocument.aspx.cs">
+      <DependentUpon>DownloadDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DownloadDocument.aspx.designer.cs">
+      <DependentUpon>DownloadDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadExport.aspx.cs">
+      <DependentUpon>DownloadExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DownloadExport.aspx.designer.cs">
+      <DependentUpon>DownloadExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EMailTemplates.aspx.cs">
+      <DependentUpon>EMailTemplates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EMailTemplates.aspx.designer.cs">
+      <DependentUpon>EMailTemplates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getPhoto.aspx.cs">
+      <DependentUpon>getPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getPhoto.aspx.designer.cs">
+      <DependentUpon>getPhoto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InitialPasswordChage.aspx.cs">
+      <DependentUpon>InitialPasswordChage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InitialPasswordChage.aspx.designer.cs">
+      <DependentUpon>InitialPasswordChage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotLoggedIn.aspx.cs">
+      <DependentUpon>NotLoggedIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotLoggedIn.aspx.designer.cs">
+      <DependentUpon>NotLoggedIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentReports.aspx.cs">
+      <DependentUpon>PaymentReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentReports.aspx.designer.cs">
+      <DependentUpon>PaymentReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentsInfo.aspx.cs">
+      <DependentUpon>PaymentsInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentsInfo.aspx.designer.cs">
+      <DependentUpon>PaymentsInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramNames.aspx.cs">
+      <DependentUpon>ProgramNames.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProgramNames.aspx.designer.cs">
+      <DependentUpon>ProgramNames.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramsInfo.aspx.cs">
+      <DependentUpon>ProgramsInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProgramsInfo.aspx.designer.cs">
+      <DependentUpon>ProgramsInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveSchedule.aspx.cs">
+      <DependentUpon>SaveSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SaveSchedule.aspx.designer.cs">
+      <DependentUpon>SaveSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveSendMessage.aspx.cs">
+      <DependentUpon>SaveSendMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SaveSendMessage.aspx.designer.cs">
+      <DependentUpon>SaveSendMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveSTPlan.aspx.cs">
+      <DependentUpon>SaveSTPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SaveSTPlan.aspx.designer.cs">
+      <DependentUpon>SaveSTPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SchedulesInfo.aspx.cs">
+      <DependentUpon>SchedulesInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchedulesInfo.aspx.designer.cs">
+      <DependentUpon>SchedulesInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteError.aspx.cs">
+      <DependentUpon>SiteError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteError.aspx.designer.cs">
+      <DependentUpon>SiteError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDocuments.aspx.cs">
+      <DependentUpon>StudentDocuments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentDocuments.aspx.designer.cs">
+      <DependentUpon>StudentDocuments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentForm.aspx.cs">
+      <DependentUpon>StudentForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentForm.aspx.designer.cs">
+      <DependentUpon>StudentForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentNotes.aspx.cs">
+      <DependentUpon>StudentNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentNotes.aspx.designer.cs">
+      <DependentUpon>StudentNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPersonal.aspx.cs">
+      <DependentUpon>StudentPersonal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentPersonal.aspx.designer.cs">
+      <DependentUpon>StudentPersonal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentReports.aspx.cs">
+      <DependentUpon>StudentReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentReports.aspx.designer.cs">
+      <DependentUpon>StudentReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsInfo.aspx.cs">
+      <DependentUpon>StudentsInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentsInfo.aspx.designer.cs">
+      <DependentUpon>StudentsInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TutorNotes.aspx.cs">
+      <DependentUpon>TutorNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TutorNotes.aspx.designer.cs">
+      <DependentUpon>TutorNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TutorPersonal.aspx.cs">
+      <DependentUpon>TutorPersonal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TutorPersonal.aspx.designer.cs">
+      <DependentUpon>TutorPersonal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TutorReports.aspx.cs">
+      <DependentUpon>TutorReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TutorReports.aspx.designer.cs">
+      <DependentUpon>TutorReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TutorsInfo.aspx.cs">
+      <DependentUpon>TutorsInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TutorsInfo.aspx.designer.cs">
+      <DependentUpon>TutorsInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TutorUsers.aspx.cs">
+      <DependentUpon>TutorUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TutorUsers.aspx.designer.cs">
+      <DependentUpon>TutorUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadDocument.aspx.cs">
+      <DependentUpon>UploadDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadDocument.aspx.designer.cs">
+      <DependentUpon>UploadDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadPhoto.aspx.cs">
+      <DependentUpon>UploadPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadPhoto.aspx.designer.cs">
+      <DependentUpon>UploadPhoto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPreferences.aspx.cs">
+      <DependentUpon>UserPreferences.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPreferences.aspx.designer.cs">
+      <DependentUpon>UserPreferences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserRolesInfo.aspx.cs">
+      <DependentUpon>UserRolesInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserRolesInfo.aspx.designer.cs">
+      <DependentUpon>UserRolesInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UtilEMail.cs" />
+    <Compile Include="UtilExporter.cs" />
+    <Compile Include="UtilMenu.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="UserPrefs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Best.Master" />
+    <Content Include="BestCenterInfo.aspx" />
+    <Content Include="BestExportToExcel.aspx" />
+    <Content Include="BestMassEMail.aspx" />
+    <Content Include="BestPaymentTypes.aspx" />
+    <Content Include="BestServicesInfo.aspx" />
+    <Content Include="BestSiteError.aspx" />
+    <Content Include="BestStudentPictures.aspx" />
+    <Content Include="BestStudentPlan.aspx" />
+    <Content Include="BestStudentSchedule.aspx" />
+    <Content Include="BestStudentUser.aspx" />
+    <Content Include="BestTutorPlan.aspx" />
+    <Content Include="BestTutorSchedule.aspx" />
+    <Content Include="BestUploader.aspx" />
+    <Content Include="BestWelcome.aspx" />
+    <Content Include="ChangeCenter.aspx" />
+    <Content Include="ChangeLog.aspx" />
+    <Content Include="ChangePassword.aspx" />
+    <Content Include="Dashboard.aspx" />
+    <Content Include="DownloadDocument.aspx" />
+    <Content Include="DownloadExport.aspx" />
+    <Content Include="EMailTemplates.aspx" />
+    <Content Include="ForgotPassword.aspx" />
+    <Content Include="getPhoto.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\accept.png" />
+    <Content Include="images\add.png" />
+    <Content Include="images\arrow_left.png" />
+    <Content Include="images\arrow_right.png" />
+    <Content Include="images\ARW03DN.png" />
+    <Content Include="images\ARW03UP.png" />
+    <Content Include="images\bell_add.png" />
+    <Content Include="images\bg_table_header.gif" />
+    <Content Include="images\cancel.png" />
+    <Content Include="images\coins.png" />
+    <Content Include="images\date.png" />
+    <Content Include="images\date_next.png" />
+    <Content Include="images\date_previous.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\disconnect.png" />
+    <Content Include="images\disk.png" />
+    <Content Include="images\gridedit.png" />
+    <Content Include="images\group.png" />
+    <Content Include="images\login.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\note_add.png" />
+    <Content Include="images\pageend.png" />
+    <Content Include="images\pagenext.png" />
+    <Content Include="images\pageprior.png" />
+    <Content Include="images\pagestart.png" />
+    <Content Include="images\search.png" />
+    <Content Include="images\tick.png" />
+    <Content Include="images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="images\ui-bg_glass_100_f5f0e5_1x400.png" />
+    <Content Include="images\ui-bg_glass_25_cb842e_1x400.png" />
+    <Content Include="images\ui-bg_glass_70_ede4d4_1x400.png" />
+    <Content Include="images\ui-bg_highlight-hard_100_f4f0ec_1x100.png" />
+    <Content Include="images\ui-bg_highlight-hard_65_fee4bd_1x100.png" />
+    <Content Include="images\ui-bg_highlight-hard_75_f5f5b5_1x100.png" />
+    <Content Include="images\ui-bg_inset-soft_100_f4f0ec_1x100.png" />
+    <Content Include="images\ui-icons_c47a23_256x240.png" />
+    <Content Include="images\ui-icons_cb672b_256x240.png" />
+    <Content Include="images\ui-icons_f08000_256x240.png" />
+    <Content Include="images\ui-icons_f35f07_256x240.png" />
+    <Content Include="images\ui-icons_ff7519_256x240.png" />
+    <Content Include="images\ui-icons_ffffff_256x240.png" />
+    <Content Include="images\user_edit.png" />
+    <Content Include="images\xls.gif" />
+    <Content Include="images\zoom.png" />
+    <Content Include="InitialPasswordChage.aspx" />
+    <Content Include="js\bestGrid.js" />
+    <Content Include="js\bestPlanner.css" />
+    <Content Include="js\bestPlanner.js" />
+    <Content Include="js\BestSTPlan.js" />
+    <Content Include="js\Grid.css" />
+    <Content Include="js\InnerStyles.css" />
+    <Content Include="js\jqModal.css" />
+    <Content Include="js\jqModal.js" />
+    <Content Include="js\jquery-1.5.min.js" />
+    <Content Include="js\jquery-ui-1.8.10.custom.css" />
+    <Content Include="js\jquery-ui-1.8.9.custom.min.js" />
+    <Content Include="js\jquery.maskedinput-1.2.2.js" />
+    <Content Include="js\jquery.metadata.js" />
+    <Content Include="js\jquery.tablesorter.js" />
+    <Content Include="js\jscssoverride.css" />
+    <Content Include="js\MasterStyles.css" />
+    <Content Include="js\SiteCommon.js" />
+    <Content Include="Logout.aspx" />
+    <Content Include="NotLoggedIn.aspx" />
+    <Content Include="PaymentReports.aspx" />
+    <Content Include="PaymentsInfo.aspx" />
+    <Content Include="ProgramNames.aspx" />
+    <Content Include="ProgramsInfo.aspx" />
+    <Content Include="SaveSchedule.aspx" />
+    <Content Include="SaveSendMessage.aspx" />
+    <Content Include="SaveSTPlan.aspx" />
+    <Content Include="SchedulesInfo.aspx" />
+    <Content Include="SiteError.aspx" />
+    <Content Include="StudentDocuments.aspx" />
+    <Content Include="StudentForm.aspx" />
+    <Content Include="StudentNotes.aspx" />
+    <Content Include="StudentPersonal.aspx" />
+    <Content Include="StudentReports.aspx" />
+    <Content Include="StudentsInfo.aspx" />
+    <Content Include="TutorNotes.aspx" />
+    <Content Include="TutorPersonal.aspx" />
+    <Content Include="TutorReports.aspx" />
+    <Content Include="TutorsInfo.aspx" />
+    <Content Include="TutorUsers.aspx" />
+    <Content Include="UploadDocument.aspx" />
+    <Content Include="UploadPhoto.aspx" />
+    <Content Include="UserInfo.aspx" />
+    <Content Include="UserPreferences.aspx" />
+    <Content Include="UserRolesInfo.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52188</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

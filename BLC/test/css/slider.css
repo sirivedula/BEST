@@ -1,0 +1,7 @@
+@charset "utf-8";
+#banner{ position:relative; overflow:hidden; z-index:1;}
+#banner.index{ width:774px; height:263px; float:left;}
+#pager{ position:absolute; right:10px; bottom:10px; z-index:20;}
+#pager a{ background:url(../images/sq.gif) no-repeat 0px 0px; float:left; margin:0px; width:17px; height:15px; overflow:hidden; font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:normal; color:#fff; text-decoration:none; text-align:center; margin:0px 1px 0px 0px; padding:2px 0px 0px 0px;}
+#pager .activeSlide{ background:url(../images/sq1.gif) no-repeat 0px 0px; color:#c60000; text-decoration:none;}
+

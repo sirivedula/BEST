@@ -1,0 +1,5 @@
+.ui-button {font-family:Tahoma; font-size:12px; font-weight:bold; }
+.ui-dialog-title {font-family:Tahoma; font-size:12px; font-weight:bold; }
+.ui-dialog, .ui-dialog-content, .ui-widget-content { font-family:Tahoma; padding:1px; font-size:12px; }
+.ui-widget button {font-size:10px; font-family:Tahoma; }
+.ui-widget { font-size:small; }

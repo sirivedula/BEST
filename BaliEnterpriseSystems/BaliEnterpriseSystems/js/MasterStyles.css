@@ -1,0 +1,355 @@
+@charset "utf-8";
+/* CSS Document */
+/* RESET STYLES */
+/*
+   Thanks to Eric Meyer for working hard on this master
+   styles reset form.   The post that this file was created
+   from is located here: http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body
+{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:11px;
+	color:#000;
+	margin:0;
+	padding:0;
+	border:0;
+}
+/*---- TopWraper -----*/
+#TopWraper
+{
+	width:100%;
+	height:96px;
+	background-color:#a11117;
+	float:left;
+}
+#InnerTopWraper
+{
+	width:100%;
+	height:96px;
+	background:url(../images/inner-top.jpg) repeat-x left top;
+	float:left;
+}
+#TopWraper .TopCenDiv
+{
+	width:100%;
+	/*margin:0 auto;*/
+	position:relative;
+}
+#InnerTopWraper .TopCenDiv
+{
+	width:100%;
+	/*margin:0 auto;*/
+	position:relative;
+}
+#TopWraper .TopCenDiv .Logo
+{
+	float:left;
+	width:500px;
+	height:81px;
+	background:url(../images/BLC-Logo.png) no-repeat top left;
+	margin:7px 0 0 5px;
+}
+#InnerTopWraper .TopCenDiv .Logo
+{
+	float:left;
+	width:500px;
+	height:81px;
+	background:url(../images/BLC-Logo.png) no-repeat top left;
+	margin:7px 0 0 5px;
+}
+/*---- TopWraper -----*/
+
+/*---- PrimaryNavigation -----*/
+#InnerTopWraper .TopCenDiv .TopR
+{
+	float:right;
+	margin-top:30px;
+	padding-right:10px;
+}
+#InnerTopWraper .TopCenDiv .TopR .UCDiv
+{
+	float:left;
+}
+.TopR .UCDiv span
+{
+	float:left;
+	color:#fff;
+}
+.TopR .UCDiv span.L
+{
+	float:left;
+	border-left:1px solid #f9f184;
+	width:2px;
+	height:10px;
+	margin:2px 5px 0px 5px;
+}
+.TopR .UCDiv a
+{
+	float:left;
+	color:#fff;
+	text-decoration:none;
+}
+.TopR .UCDiv a.Logout
+{
+	float:left;
+	background:url(../images/Sprites.png) no-repeat left -24px;
+	padding-left:20px;
+}
+.TopR .UCDiv a.User
+{
+	float:left;
+	background:url(../images/Sprites.png) no-repeat left -44px;
+	padding-left:20px;
+}
+.TopR .UCDiv a:hover
+{
+	color:#f9f184;
+}
+#InnerTopWraper .TopCenDiv .PrimaryNav
+{
+	/*float:left;
+	margin-top:64px;*/
+	position:absolute;
+	top:70px;
+	left:140px;
+}
+.PrimaryNav ul
+{
+	float:left;
+	margin:0;
+	padding:0;
+}
+.PrimaryNav ul li
+{
+	list-style-type:none;
+	display:inline;
+	float:left;
+	padding-top:5px;
+}
+.PrimaryNav ul li a
+{
+	color:#000;
+	text-decoration:none;
+	padding:0px 15px 0px 10px;
+	float:left;
+	font-weight:bold;
+	font-family:Calibri, Tahoma, Verdana, Geneva, sans-serif;
+	font-size:12px;
+}
+.PrimaryNav ul li a b
+{
+	float:left;
+	width:7px;
+	height:27px;
+}
+.PrimaryNav ul li a span
+{
+	float:left;
+	height:20px;
+	padding:6px 10px 0px;
+}
+.PrimaryNav ul li a:hover
+{
+	color:#A11117;
+}
+/*.PrimaryNav ul li a:hover b.L
+{
+	float:left;
+	background:url(../images/Sprites.png) no-repeat left top;
+	width:7px;
+	height:27px;
+}
+.PrimaryNav ul li a:hover span
+{
+	float:left;
+	border-top:1px solid #b6c0c9;
+	background-color:#fff;
+	height:20px;
+	padding-top:6px;
+}
+.PrimaryNav ul li a:hover b.R
+{
+	float:left;
+	background:url(../images/Sprites.png) no-repeat -13px top;
+	width:7px;
+	height:27px;
+}*/
+.PrimaryNav ul li a.Selected b.L
+{
+	float:left;
+	background:url(../images/Sprites.png) no-repeat left top;
+	width:7px;
+	height:21px;
+}
+.PrimaryNav ul li a.Selected span
+{
+	float:left;
+	background-color:#fff;
+	background:url(../images/button-span-bg.png) repeat-x left top;
+	height:15px;
+	padding-top:6px;
+	font-weight:bold;
+}
+.PrimaryNav ul li a.Selected b.R
+{
+	float:left;
+	background:url(../images/Sprites.png) no-repeat -13px top;
+	width:7px;
+	height:21px;
+}
+/*---- PrimaryNavigation -----*/
+
+/*---- MiddleWraper -----*/
+.MidCenDiv
+{
+	/*margin:0 auto;*/
+	width:100%;
+	float:left;
+}
+/*---- MiddleWraper -----*/
+
+/*---- LoginDiv -----*/
+
+.MidCenDiv .LoginBoxDiv
+{
+	margin:0 auto;
+	width:965px;
+	background:url(../images/login-bg.jpg) no-repeat top left;
+	height:404px;
+	margin-top:120px;
+}
+.MidCenDiv .LoginBoxDiv .LoginDiv
+{
+	float:right;
+	width:251px;
+	/*padding:30px 30px 30px 50px;*/
+	margin:60px 56px 0 0;
+}
+.LoginBoxDiv .LoginDiv .H
+{
+	float:left;
+	width:70px;
+	height:36px;
+	background:url(../images/login-heading.jpg) no-repeat top left;
+	padding-bottom:12px;
+}
+.LoginBoxDiv .LoginDiv .Row
+{
+	float:left;
+	width:225px;
+	padding-bottom:15px;
+	padding-left:8px;
+}
+.LoginBoxDiv .LoginDiv .Row .FieldName
+{
+	float:left;
+	width:65px;
+	color:#000;
+	padding-top:2px;
+}
+.LoginBoxDiv .LoginDiv .Row .FieldValue
+{
+	float:left;
+	padding-left:10px;
+	width:150px;
+}
+.LoginBoxDiv .LoginDiv .Row .FieldValue .TextBox
+{
+	float:left;
+	width:148px;
+	border:0px;
+	border:1px solid #a5a5a5;
+}
+.LoginBoxDiv .LoginDiv .ForGotDiv
+{
+	float:left;
+	width:225px;
+	color:#000;
+	text-align:right;
+	padding-top:10px;
+}
+.LoginBoxDiv .LoginDiv .ForGotDiv a
+{
+	text-decoration:none;
+	color:#000;
+}
+.LoginBoxDiv .LoginDiv .ForGotDiv a:hover
+{
+	text-decoration:underline;
+}
+/*---- LoginDiv -----*/
+
+.ButtonsDiv
+{
+	float:right;
+}
+.ButtonsDiv a.Button
+{
+	float:left;
+	color:#fff;
+	font-weight:bold;
+	border:0px;
+	background-color:#a11117;
+	text-decoration:none;
+	text-align:center;
+	padding:5px 10px;
+}
+.ButtonsDiv a.Button:hover
+{
+	float:left;
+	background-color:#292929;
+}
+.LeftGap15
+{
+	margin-left:15px;
+}
+.TopGap15
+{
+	margin-top:15px;
+}
+
+/*---- FooterDiv -----*/
+#FooterDiv
+{
+	position:fixed;
+	bottom:0;
+	width:100%;
+	height:36px;
+	background-color:#292929;
+}
+
+#FooterDiv .FootNoteL
+{
+	float:left;
+	width:50%;
+	color:#fff;
+	padding-top:12px;
+}
+#FooterDiv .FootNoteR
+{
+	float:right;
+	width:50%;
+	color:#fff;
+	padding-top:12px;
+	text-align:right;
+}
+#FooterDiv a 
+{
+	color:#FFF;
+	text-decoration:underline;
+}
+/*---- FooterDiv -----*/

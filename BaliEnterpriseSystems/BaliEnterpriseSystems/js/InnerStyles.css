@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document */
+/* RESET STYLES */
+/*
+   Thanks to Eric Meyer for working hard on this master
+   styles reset form.   The post that this file was created
+   from is located here: http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+*/
+.ContentCenDiv
+{
+	margin:0 auto;
+	width:100%;
+}
+.ContentbrdrDiv
+{
+	float:left;
+	width:100%;
+	border:1px solid #f0f0f0;
+	margin-top:0px;
+}
+.ContentbrdrDiv .LeftNav
+{
+	float:left;
+	/*width:183px;*/
+	background-color:#f0f0f0;
+	height:500px;
+	width:150px;
+}
+.LeftNav ul
+{
+	float:left;
+	margin:0;
+	padding:20px 0 0 14px;
+}
+.LeftNav ul li
+{
+	float:left;
+	width:100%;
+	display:block;
+	margin-bottom:5px;
+}
+.LeftNav ul li a
+{
+	float:left;
+	text-decoration:none;
+	color:#616161;
+	height:28px;
+	/*padding:7px 0px 0px 15px;*/
+	font-weight:bold;
+	font-family:Calibri,Tahoma,Verdana,Geneva,sans-serif;
+	font-size:11px;
+	width:100%;
+}
+.LeftNav ul li a b
+{
+	float:left;
+	/*background:url(../images/Sprites.png) no-repeat left -66px;*/
+	width:8px;
+	height:28px;
+}
+.LeftNav ul li a span
+{
+	float:left;
+	height:21px;
+	padding:7px 0px 0px 15px;
+	background:url(../images/button-bullet.png) no-repeat left 7px;
+}
+.LeftNav ul li a:hover
+{
+	color:#a21118;
+}
+.LeftNav ul li a.Selected
+{
+	color:#a21118;
+	height:28px;
+	background:url(../images/leftnav-selected-bg.jpg) repeat-x left top;
+	font-weight:bold;
+	width:100%;
+}
+.LeftNav ul li a.Selected b
+{
+	float:left;
+	background:url(../images/Sprites.png) no-repeat left -66px;
+	width:8px;
+	height:28px;
+}
+.ContentbrdrDiv .CAreaDiv
+{
+	float:left;
+	width:86%;
+	padding-left:1%;
+	margin-top:15px;
+	padding-bottom:100px;
+}

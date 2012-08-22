@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Planner</title>
+	<script type="text/javascript" src="jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="jquery-ui-1.8.9.custom.min.js"></script>
+	
+	<style>
+		.tblShow {width:100%;height:100%;}
+		.tblShow td { border-bottom:1px dashed #999; border-right:1px dashed #999;  }
+		.divForm1 {border-top:5px solid #808000; background-color:#D9D9C6;width:100%;height:100px;}
+		.divForm2 {border-top:5px solid #5959AC; background-color:#E9E9F3;width:100%;height:200px;}
+		
+		.grid {font-family:Tahoma;font-size:12px;background-color:#CBCBE4; width:100%; cursor:pointer; border:1px solid #eee;}
+		.grid th { background-color:#5959AC; color:#FFF; border-top:1px solid #FFF; border-right:1px solid #FFF; padding:2px; }
+		.grid td { border-bottom:1px solid #ccc; border-top:1px solid #fff; border-right:1px solid #fff; padding-left:1px; }
+		.gridodd td { background-color:#E9E9F3; }
+		.gridsel td { color:#fff; background-color:#004080; }
+		.grid tbody tr:hover td, .gridodd tbody tr:hover td { background-color:#004080; color:#fff; }
+	</style>
+	
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+	
+	<table class="grid" cellpadding="0" cellspacing="0" border="0">
+		<thead><tr><th>Head-1</th><th>Head-2</th><th>Head-3</th></tr></thead>
+		<tr onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr class="gridodd" onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='gridodd';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr class="gridodd" onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='gridodd';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr class="gridodd" onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='gridodd';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr class="gridodd" onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='gridodd';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr class="gridodd" onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='gridodd';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+		<tr class="gridodd" onmouseover="this.className='gridsel';void(0);" onmouseout="this.className='gridodd';void(0);"><td>123=></td><td>234</td><td>654654</td></tr>
+	</table>
+	<br />	
+	<div class="divForm2">&nbps;</div>
+	<div>
+	<br />
+	<div class="divForm1">&nbps;</div>
+	<div>
+
+</body>
+</html>

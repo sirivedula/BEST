@@ -1,0 +1,13 @@
+
+div.centered{text-align:center;}
+div.centered table{margin:0 auto;text-align:left; font-family:Tahoma;font-size:small;}
+.gridtitle {font-size:large; font-family:Tahoma; font-weight:bold;color:#000; text-decoration:underline;}
+
+.bestgrid td{border-left:1px solid #FFFFFF;border-right:1px solid #BBB;border-top:1px solid #FFFFFF;border-bottom:1px solid #CCC;vertical-align:middle;line-height:17px;font-family:tahoma;font-size:11px;cursor:pointer;background-color:#DFE6EC;padding:0px;padding-left:2px;padding-right:1px;}
+
+.bestgrid th { background-image:url('../images/bg_table_header.gif'); border-right:1px solid #BBB; border-left:1px solid #FFFFFF; text-align:center; color:#000;font-family:tahoma;font-size:11px;font-style:normal;padding-left:3px;padding-right:3px;cursor:pointer;}
+.gridodd td {background-color:#F9F9F9; }
+
+.gridpaging td {font-family:Tahoma;font-size:11px;padding-left:2px;padding-right:4px;margin-left:0px;margin-right:0px;border:0px;font-weight:normal;vertical-align:middle; }
+.gridpaging {border:1px solid #999999; margin-left:0px; margin-right:0px; background-color:#DDDDDD; font-family:Tahoma;color:#000000;font-size:11px; backgorund:none; }
+.gridpaging input, select { font-family:Tahoma;font-size:11px;}

@@ -1,0 +1,24 @@
+1.
+header : color:#fff bgcolor:#ab8b00
+inside : bgcolor: #e0c240, border:#ab8b00
+
+2.
+header : bgcolor: #b1365f
+inside : bgcolor: #e67399 border:#b1365f
+
+3.
+header: #29527a
+inside: #668cb3
+
+4.
+header: #7a367a
+inside: #b373b3
+
+5.
+header: #1b887a
+inside: #59bfb3
+
+6.
+header: #2952a3
+inside: #668cd9
+

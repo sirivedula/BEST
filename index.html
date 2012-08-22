@@ -1,0 +1,478 @@
+<html>
+<head>
+	<title>Planner</title>
+	<link href="jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css" />	
+	<script type="text/javascript" src="jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="jquery-ui-1.8.9.custom.min.js"></script>
+	
+	<style>
+		.ui-button {font-family:Tahoma; font-size:11px; font-weight:bold; }
+		.ui-dialog-title {font-family:Tahoma; font-size:11px; font-weight:bold; }
+		.ui-dialog, .ui-dialog-content, .ui-widget-content { font-family:Tahoma; padding:1px; font-size:10px; }
+		.ui-widget button {font-size:10px; font-family:Tahoma; }
+		
+		.tblShow {width:100%;height:100%;}
+		.tblShow td { border-bottom:1px solid #A6CFE9; border-right:1px solid #A6CFE9;  }
+		.StudentsDiv { font-family:Georia, Tahoma; color:#333; font-size:12px; text-align:center; height:20px;width:100px; border-top:2px solid #5959AC; background-color:#CBCBE4; cursor:pointer; margin-bottom:2px; }
+		.TutorsDiv {text-align:center; border-top:3px solid #808000; background-color:#D9D9C6;width:100px;height:20px; vertical-align:top; cursor:pointer; margin-bottom:2px;}
+		.scaleeven { background-color:#F9F9F9; height:50px; padding:2px; border-top:1px solid #A6CFE9;}
+		.scaleodd { background-color:#E9E9E9; height:50px; padding:2px; border-top:1px solid #A6CFE9;}
+		
+		#showScheduleDiv table tbody tr td { font-family:Tahoma; font-size:11px; }
+		.ra { text-align:right; }
+		.ca { text-align:center; }
+		.day1head { text-align:center;font-weight:bold;font-family:Verdana;font-size:9px;color:#fff;height:14px;width:80px;background-color:#b1365f; cursor:pointer;border:1px solid #b1365f;}
+		.day1body { text-align:center;font-family:Verdana;font-size:9px;color:#fff;height:30px;width:80px;background-color:#e67399;border:1px solid #b1365f;}
+		
+		.day2head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:80px;background-color:#ab8b00; cursor:pointer;border:1px solid #ab8b00; }
+		.day2body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:30px;width:80px;background-color:#e0c240;border:1px solid #ab8b00; }
+		
+		.day3head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:80px;background-color:#29527a; cursor:pointer; border:1px solid #29527a;}
+		.day3body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:30px;width:80px;background-color:#668cb3;border:1px solid #29527a; }
+		
+		.day4head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:80px;background-color:#7a367a; cursor:pointer;border:1px solid #7a367a;}
+		.day4body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:30px;width:80px;background-color:#b373b3;border:1px solid #7a367a; }
+
+		.day5head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:80px;background-color:#1b887a; cursor:pointer;border:1px solid #1b887a;}
+		.day5body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:30px;width:80px;background-color:#59bfb3;border:1px solid #1b887a; }
+
+		.day6head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:80px;background-color:#2952a3; cursor:pointer;border:1px solid #2952a3;}
+		.day6body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:30px;width:80px;background-color:#668cd9;border:1px solid #2952a3; }
+		
+		.imgarrows { cursor:pointer;border:0px solid #FFF; }
+		</style>
+	
+	
+	<script type="text/javascript">
+		
+		var PlannerDay = 1;
+		var PlannerWeek = 2;
+		var PlannerMonth = 3;
+		var StudentInfo = [ { "firstName" : "John", "lastName" : "Moore", "guid" : "0099-0099"}, 
+							{ "firstName" : "Jimmy", "lastName" : "Woods", "guid" : "9090-9090" },
+							{ "firstName" : "Carl", "lastName" : "Jones", "guid" : "990-990-990" },
+							{ "firstName" : "Nims", "lastName" : "Bali", "guid" : "90909090-9000" },
+							{ "firstName" : "Kelly", "lastName" : "Young", "guid" : "12345-12345" },
+							{ "firstName" : "Chris", "lastName" : "Norris", "guid" : "123456-9000" },
+							{ "firstName" : "Tony", "lastName" : "Ware", "guid" : "1234-9000" },
+							{ "firstName" : "Ronnie", "lastName" : "Vance", "guid" : "12345-9000" },
+							{ "firstName" : "Ella", "lastName" : "Flieschman", "guid" : "1234560-9000" },
+							{ "firstName" : "Greta", "lastName" : "Flieschman", "guid" : "225544-9000" },
+							{ "firstName" : "Koushik", "lastName" : "Musaboyina", "guid" : "445566-9000" },
+							{ "firstName" : "Sai Teja", "lastName" : "Musaboyina", "guid" : "665544-9000" },
+							{ "firstName" : "Bhargavi", "lastName" : "Musaboyina", "guid" : "778899-9000" }
+						  ] ;
+		var TurtorInfo = [{"Name" : "Balaji", "guid" : "1234-99"}, {"Name" : "Paul", "guid" : "2121-99"}, {"Name" : "Madhav", "guid" : "2121-990"}, {"Name" : "Surya Narayana", "guid" : "2121-9900"}, {"Name" : "Sudeep Bali", "guid" : "21210-099"}]
+		
+		var ScheduleInfo = [{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"14","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"13","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" },
+		{"schGuid":"123-321-123","stuGuid":"9090-9090","tutGuid":"2121-99","schDate":"03/01/2011","schFrom":"12","schTo":"15" }];
+		
+		function Schedule(schguid, stguid, tuguid, sdate, sfrom, sto){
+			this.schGuid = schguid;
+			this.stuGuid = stguid;
+			this.tutGuid = tuguid;
+			this.schDate = sdate;
+			this.schFrom = sfrom;
+			this.schTo = sto;
+			this.topx = 0;
+			this.leftx = 0;
+			this.isNew = true;
+			
+			this.getDesc = function(){
+				var stname = '';
+				for(var cnt in StudentInfo){
+					if(StudentInfo[cnt].guid == this.stuGuid){
+						stname = StudentInfo[cnt].firstName;
+						break;
+					}
+				}
+				var tuname = '';
+				for(var cnt in TurtorInfo){
+					if(TurtorInfo[cnt].guid == this.tutGuid){
+						tuname = TurtorInfo[cnt].Name;
+						break;
+					}
+				}
+				return stname +  ' - ' + tuname;
+			}
+			
+			this.getTimeHead = function(){				
+				return this.schFrom + ' - ' +  this.schTo;
+			}
+			
+			this.ToHTML = function(){
+				var myDate = new Date(this.schDate);
+				var clsnum = (this.schFrom%7 == 0) ? 2 : (this.schFrom%7); 
+				clsname = 'day'+clsnum;
+				var top1 = Number(this.topx)+14;
+				return '<div class="' + clsname + 'head" style="position:absolute;top:'+this.topx+'px;left:'+this.leftx+'px;"><span style="float:left;">'+this.getTimeHead() + '</span><span style="float:right;vertical-align:top;"><a style="border:0px; text-decoration:none;" href="javascript:void(0);" onclick="BestPlanner.editSchedule(\''+this.schGuid+'\');"><img style="vertical-align:top;border:0px;" src="images/bell_add.png" title="Edit schedule"></a></span></div><div class="' + clsname + 'body" style="position:absolute;top:' + top1 + 'px;left:' + this.leftx + 'px;">' +  this.getDesc() + '</div>';
+			}
+		}
+		
+		var BestPlanner = function(){
+			var plannerMode;	//Day, Week, Month
+			var plannerDate;
+			var beginTime = 6;
+			var endTime = 22;
+			return {
+				extendToSchedule : function(){
+					for(var x in ScheduleInfo){
+						var objSch = new Schedule();
+						objSch.isNew = false;
+						jQuery.extend(objSch, ScheduleInfo[x]);
+						ScheduleInfo[x] = objSch;
+					}
+				}
+				
+				, AddSchedule : function(sguid, tguid, sdate, sfrom, sto){
+					var newSch = new Schedule('new', sguid, tguid, sdate, sfrom, sto);
+					ScheduleInfo[ScheduleInfo.length] = newSch;
+					this.ShowSchedule(newSch, 0);
+				}
+				
+				, getSchedule : function(schGuid){
+					for(var cnt in ScheduleInfo){
+						if(ScheduleInfo[cnt].schGuid == schGuid){
+							return ScheduleInfo[cnt];
+						}
+					}
+					return null;
+				}
+				
+				, editSchedule : function( schGuid ){
+					var objSch = this.getSchedule(schGuid);
+					if (objSch != null){
+						var slicediv = '#divSlice_' + objSch.schFrom;
+						var pos = $(slicediv).position();
+						$('#showScheduleDiv').dialog({autoOpen: true, width:350,height:155,title:'Edit Schedule', position:pos,
+							buttons: [{ text: "Delete", click : function(){
+									alert(schGuid);
+								}
+							}
+							,{ text: "OK", click: function(schGuid) { 
+									if(BestPlanner.canSave()){
+										var stguid = $('#selstudent').val();
+										var tuguid = $('#seltutor').val();
+										var tfrom = $('#fromHour').val();
+										var tto = $('#toHour').val();
+										var sdate = BestPlanner.ToMMddyyy(BestPlanner.plannerDate);
+										BestPlanner.UpdateSchedule(schGuid, stguid, tuguid, sdate, tfrom, tto);
+										
+										$(this).dialog("close"); 
+									}
+								}}] });		
+					}							
+				}
+				
+				, PopupSchedule : function(stuDiv){
+					if (typeof stuDiv != 'undefined'){
+						var idx = stuDiv.id.split('_')[1];
+						var curStudent = StudentInfo[idx];
+					}
+					$('#showScheduleDiv').dialog({autoOpen: true, width:350,height:155,title:'Add Schedule',
+						buttons: [{
+						text: "OK", click: function() { 
+								if(BestPlanner.canSave()){
+									var stguid = $('#selstudent').val();
+									var tuguid = $('#seltutor').val();
+									var tfrom = $('#fromHour').val();
+									var tto = $('#toHour').val();
+									var sdate = BestPlanner.ToMMddyyy(BestPlanner.plannerDate);
+									BestPlanner.AddSchedule(stguid, tuguid, sdate, tfrom, tto);
+									
+									$(this).dialog("close"); 
+								}
+							}}] });
+				}
+				
+				, canSave : function(){
+					if($('#selstudent').val().length == 0){
+						alert('Select the Student');
+						return false;
+					}
+					if($('#seltutor').val().length == 0){
+						alert('Select the Turor');
+						return false;
+					}
+					if ($('#fromHour').val().length == 0){
+						alert('Select the From Time');
+						return false;
+					}
+					if ($('#toHour').val().length == 0){
+						alert('Select the To Time');
+						return false;
+					}
+					return true;
+				}
+				, Show : function(){
+					if (this.plannerMode = PlannerDay){						
+						var studentsHtml = '';
+						for(var x in StudentInfo){
+							studentsHtml += '<div class="StudentsDiv" onclick="BestPlanner.PopupSchedule(this);" id="STDiv_' + x + '">' + StudentInfo[x].firstName + ' ' + StudentInfo[x].lastName + '</div>';
+						}
+						
+						var tutorsHtml = '';
+						for(var x in TurtorInfo){
+							tutorsHtml += '<div class="TutorsDiv" id="TUDiv_' + x + '">' + TurtorInfo[x].Name + '</div>';
+						}
+						$('#tdRest').html('<div>' + tutorsHtml + studentsHtml + '</div>');
+						
+						
+						var plannerHtml = '<table style="width:100%;height:100%;border:1px solid #A6CFE9;" cellspacing="0" cellpadding="0" border="0"><tr><td style="font-size:12px; background-color:#E9E9E9; text-align:center;" colspan="2">' + this.ToMMddyyy(this.plannerDate) + '</td></tr>';
+						for(var tslice=beginTime; tslice<=endTime; tslice++){							
+							var divclass = (tslice%2==0)?"scaleeven" : "scaleodd";
+							plannerHtml += '<tr><td style="font-size:11px; background-color:#E9E9E9; text-align:right; padding-right:2px; width:40px; border-top:1px solid #A6CFE9; border-right:1px solid #A6CFE9;">' + ((tslice%12 == 0)?"12:00" : tslice%12 + ':00') + '</td><td style="width:97%;"><div class="' + divclass + '" id="divSlice_' + tslice + '" ondblclick="BestPlanner.PopupSchedule();">&nbsp;</div></td></tr>';
+						}
+						plannerHtml += '</table>'
+						$('#tdPlanner').html(plannerHtml);
+					}
+				}
+				
+				,ToMMddyyy : function(day){
+					return day.getMonth()+1 + '/' + day.getDate() + '/' + day.getFullYear();
+				}
+				
+				, DrawSchedule : function(){
+					/* 1. Each Schedule call ShowSchedule */
+					idxColumn = 0;
+					datetime = '';
+					this.fixDivHeights();
+					for(var cnt in ScheduleInfo){
+						var schDateTime = ScheduleInfo[cnt].schDate + ScheduleInfo[cnt].schFrom;
+						if (datetime != schDateTime){
+							idxColumn = 0;
+							datetime = schDateTime;
+						} else {
+							idxColumn++;
+						}
+						this.ShowSchedule(ScheduleInfo[cnt], 0, idxColumn);
+					}
+				}
+				
+				, fixDivHeights : function(){
+					$('#divSlice_12').css('height', '190px');
+					$('#divSlice_13').css('height', '190px');
+					$('#divSlice_14').css('height', '190px');
+				}
+				
+				, canFitInSameRow : function(objSch){
+					return false;
+				}
+				
+				, getScheduleCount : function(objSch){
+					var Count = 0;
+					for(var cnt in ScheduleInfo){
+						if(objSch.schFrom == ScheduleInfo[cnt].schFrom){
+							Count++;
+						}
+					}
+					return Count;
+				}
+				
+				,ShowSchedule : function(objSch, row, colIndex){
+					var slicediv = '#divSlice_' + objSch.schFrom;
+					
+					var schIndex;
+					if(typeof colIndex == 'undefined'){
+						schIndex = this.getScheduleCount(objSch)-1;
+					} else {
+						var schIndex = colIndex;
+					}
+					var divLeft = $(slicediv).position()['left'];
+					objSch.leftx = (schIndex==0) ? 55 : (schIndex * 85) + 55;
+					objSch.topx = $(slicediv).position()['top'] + row; 
+					$(slicediv).append(objSch.ToHTML());
+				}
+				
+				, CreateSchedule : function(){
+					
+				}
+				
+			} // end return
+		} (); // end Best Planner function object
+	
+		$(document).ready(function(){
+			BestPlanner.plannerMode = PlannerDay;
+			BestPlanner.plannerDate = new Date();
+			BestPlanner.Show();
+			BestPlanner.extendToSchedule();
+			$("#radio").buttonset();
+			
+			setTimeout("BestPlanner.DrawSchedule();", 200);
+
+		});
+		
+		function changeToTime(fromHour){
+			var fh = Number(fromHour) + 1;
+			$('#toHour').val(fh);
+		}
+	</script>
+</head>
+<body style="text-align:center;">
+	<div style="width:100%;text-align:center;">
+		<table style="width:100%;font-family:Tahoma;font-size:11px;" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td style="background-color:#A6CFE9;padding-top:2px;padding-bottom:2px;">
+					<table style="font-family:Tahoma;font-size:11px;width:100%;" cellspacing="0" cellpadding="0" border="0">
+					<tr>
+					<td><div style="float:left;padding-left:20px;"><img src="images/date_previous.png" class="imgarrows" title="Previous" />&nbsp;<img class="imgarrows" src="images/date_next.png" title="Next" />&nbsp;<a style="border:0px; text-decoration:none;" href="javascript:void(0);" onclick="Save();"><img style="cursor:pointer;border:0px;" src="images/disk.png" title="Save" /></a>&nbsp;<a style="vertical-align:top;font-weight:bold;color:#fff;" href="javascript:void(0);" onclick="Save();">Save</a></div></td>
+					<td>
+						<span style="font-family:Georgia;font-size:16px;padding-left:20px;width:100%;text-align:center;color:#FFF;font-weight:bold;text-decoration:underline;">Student Planner</span>
+					</td>
+					<td style="text-align:right; padding-right:20px;">
+						<div id="radio">
+							<input type="radio" id="radio1" name="radio" checked="checked" /><label for="radio1">Day</label>
+							<input type="radio" id="radio2" name="radio" /><label for="radio2">Week</label>
+							<input type="radio" id="radio3" name="radio" /><label for="radio3">Month</label>
+						</div>
+					</td>
+					</tr>
+					</table>
+				</td>
+				<td><input type="text" id="search" size="10" /><img src="images/search.png" alt="..."></td>
+			</tr>
+			<tr>
+				<td id="tdPlanner" style="vertical-align:top;width:100%;"><div id="divPlanner" style="border:1px solid #d9d9d9;background-color:#E9E9F3;">Planner Drawn Area</div></td>
+				<td style="width:80px;vertical-align:top;" id="tdRest">Students & Tutors Area</td>
+			</tr>
+		</table>
+		
+	</div>
+	
+	<!-- Schedule Dialog Div -->
+	<div style="display:none;" id="showScheduleDiv">
+		<table>
+			<tr>
+				<td class="ra">Student</td>
+				<td><select id="selstudent">
+						<option value=""></option>
+						<option value="0099-0099">John Moore</option>
+						<option value="990-990-990">Carl Jones</option>
+						<option value="90909090-9000">Nims Bali</option>
+						<option value="12345-12345">Kelly Young</option>
+						<option value="123456-9000">Chris Norris</option>
+						<option value="1234-9000">Tony Ware</option>
+						<option value="12345-9000">Ronnie Vance</option>
+						<option value="1234560-9000">Ella Fleischman</option>
+						<option value="225544-9000">Greta Fleischman</option>
+						<option value="445566-9000">Koushik Musaboyina</option>
+						<option value="665544-9000">Sai Teja Musaboyina</option>
+						<option value="778899-9000">Bharghavi Musaboyina</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="ra">Tutor</td>
+				<td><select id="seltutor">
+						<option value=""></option>
+						<option value="1234-99">Balaji</option>
+						<option value="2121-99">Paul</option>
+						<option value="2121-990">Madhav</option>
+						<option value="2121-9900">Surya Narayana</option>
+						<option value="21210-099">Sudeep Bali</option>
+					</select>
+				</td>
+			</tr>
+			<tr><td class="ra">From</td>
+				<td><select id="fromHour" onchange="changeToTime(this.value);">
+						<option value="6">&nbsp;6:00</option>
+						<option value="7">&nbsp;7:00</option>
+						<option value="8">&nbsp;8:00</option>
+						<option value="9">&nbsp;9:00</option>
+						<option value="10">10:00</option>
+						<option value="11">11:00</option>
+						<option value="12">12:00</option>
+						<option value="13">&nbsp;1:00</option>
+						<option value="14">&nbsp;2:00</option>
+						<option value="15">&nbsp;3:00</option>
+						<option value="16">&nbsp;4:00</option>
+						<option value="17">&nbsp;5:00</option>
+						<option value="18">&nbsp;6:00</option>
+						<option value="19">&nbsp;7:00</option>
+						<option value="20">&nbsp;8:00</option>
+						<option value="21">&nbsp;9:00</option>
+						<option value="22">10:00</option>
+					</select>
+				</td>
+			</tr>
+			<tr><td class="ra">To</td>
+					<td><select id="toHour">
+						<option value="6">&nbsp;6:00</option>
+						<option value="7" selected>&nbsp;7:00</option>
+						<option value="8">&nbsp;8:00</option>
+						<option value="9">&nbsp;9:00</option>
+						<option value="10">10:00</option>
+						<option value="11">11:00</option>
+						<option value="12">12:00</option>
+						<option value="13">&nbsp;1:00</option>
+						<option value="14">&nbsp;2:00</option>
+						<option value="15">&nbsp;3:00</option>
+						<option value="16">&nbsp;4:00</option>
+						<option value="17">&nbsp;5:00</option>
+						<option value="18">&nbsp;6:00</option>
+						<option value="19">&nbsp;7:00</option>
+						<option value="20">&nbsp;8:00</option>
+						<option value="21">&nbsp;9:00</option>
+						<option value="22">10:00</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+.ui-button {font-family:Tahoma; font-size:11px; font-weight:bold; }
+.ui-dialog-title {font-family:Tahoma; font-size:11px; font-weight:bold; }
+.ui-dialog, .ui-dialog-content, .ui-widget-content { font-family:Tahoma; padding:1px; font-size:10px; }
+.ui-widget button {font-size:10px; font-family:Tahoma; }
+.ui-autocomplete-input, .ui-menu-item { font-size:10px; text-align:left; }
+
+/*.tblShow {width:100%;height:100%;}*/
+.tblShow td { border-bottom:1px solid #A6CFE9; border-right:1px solid #A6CFE9;  }
+.StudentsDiv { font-family:Georia, Tahoma; color:#333; font-size:12px; text-align:center; height:auto;width:100px; border-top:2px solid #884a0a; background-color:#CBCBE4; cursor:pointer; margin-bottom:2px; padding-bottom:2px; }
+.TutorsDiv {padding-left:5px; text-align:left; border-top:3px solid #884a0a; background-color:#f1e9dc;width:100px;height:auto; vertical-align:top; cursor:pointer; margin-bottom:2px; padding-bottom:2px;}
+
+.scaleeven { background-color:#F9F9F9; height:30px; border-top:1px solid #A6CFE9; font-size:11px; min-width: 100px;}
+.scaleodd { background-color:#E9E9E9; height:30px; border-top:1px solid #A6CFE9; font-size:11px; min-width: 100px;}
+.tdSlice { vertical-align:top;font-size:11px; background-color:#E9E9E9; text-align:right; height:30px; border-top:1px solid #A6CFE9; padding-right:2px;}
+
+#showScheduleDiv table tbody tr td { font-family:Tahoma; font-size:11px; }
+.ra { text-align:right; }
+.ca { text-align:center; }
+.day1head { text-align:center;font-weight:bold;font-family:Verdana;font-size:9px;color:#fff;height:14px;width:100px;background-color:#b1365f; cursor:pointer;border:1px solid #b1365f;}
+.day1body { text-align:center;font-family:Verdana;font-size:9px;color:#fff;height:71px;width:100px;background-color:#e67399;border:1px solid #b1365f;}
+
+.day2head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:100px;background-color:#ab8b00; cursor:pointer;border:1px solid #ab8b00; }
+.day2body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:71px;width:100px;background-color:#e0c240;border:1px solid #ab8b00; }
+
+.day3head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:100px;background-color:#29527a; cursor:pointer; border:1px solid #29527a;}
+.day3body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:71px;width:100px;background-color:#668cb3;border:1px solid #29527a; }
+
+.day4head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:100px;background-color:#7a367a; cursor:pointer;border:1px solid #7a367a;}
+.day4body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:71px;width:100px;background-color:#b373b3;border:1px solid #7a367a; }
+
+.day5head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:100px;background-color:#1b887a; cursor:pointer;border:1px solid #1b887a;}
+.day5body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:71px;width:100px;background-color:#59bfb3;border:1px solid #1b887a; }
+
+.day6head { text-align:center;font-weight:bold;font-family:Verdana;font-size:10px;color:#fff;height:14px;width:100px;background-color:#2952a3; cursor:pointer;border:1px solid #2952a3;}
+.day6body { text-align:center;font-family:Verdana;font-size:10px;color:#fff;height:71px;width:100px;background-color:#668cd9;border:1px solid #2952a3; }
+
+.imgarrows { cursor:pointer;border:0px solid #FFF; }
+
+
+/*.dayTable { width:100%;height:100%;border:1px solid #A6CFE9; }*/
+.tddayTable { font-size:12px; background-color:#E9E9E9; text-align:center; }
+/*.weekTable { width:100%; } */
+.weekTable td { border-left:1px solid #a6cfe9 }
+.tdHeadTitle { height:20px; text-align:center; font-size:11px; }
+#tdTimes { vertical-align:top; }
+
+.monthTable { text-align:left; width:100%; border:1px solid #a6cfe9;border-left:0px; font-size:12px; } 
+.monthTable td {width: 55px;height: 125px;padding: 1px;vertical-align: top;overflow: auto;}
+.monthTable tbody .next, .monthTable tbody .previous { background-color: #eee; }
+.monthTable tbody .weekend { background-color: #DEF; }
+.monthTable th { font-size:11px; font-family:Tahoma; font-weight:normal; border-left:1px solid #a6cfe9; border-top:1px solid #a6cfe9; border-bottom:1px solid #a6cfe9; }
+.monthTable td { font-size:11px; font-family:Tahoma; font-weight:normal; border-left:1px solid #a6cfe9; border-bottom:1px solid #a6cfe9;}
+.progShow {border:1px solid #90A087; padding:1px; cursor:pointer; margin:1px; }

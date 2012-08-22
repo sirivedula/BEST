@@ -1,0 +1,970 @@
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestCenters]    Script Date: 04/17/2011 21:24:24 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestCenters](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[CenterId] [varchar](50) NOT NULL,
+	[address1] [varchar](50) NULL,
+	[address2] [varchar](50) NULL,
+	[city] [varchar](50) NULL,
+	[state] [varchar](2) NULL,
+	[zip] [varchar](50) NULL,
+	[contactName] [varchar](50) NULL,
+	[contactEMail] [varchar](80) NULL,
+	[contactPhone] [varchar](15) NULL,
+ CONSTRAINT [PK_BestCenters] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestCenters] ADD  CONSTRAINT [DF_BestCenters_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestCenters] ADD  CONSTRAINT [DF_BestCenters_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestCenters] ADD  CONSTRAINT [DF_BestCenters_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestEMailTemplates]    Script Date: 04/17/2011 21:24:40 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestEMailTemplates](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[emialTemplateName] [varchar](50) NOT NULL,
+	[templateDescription] [varchar](max) NOT NULL,
+ CONSTRAINT [PK_BestEMailTemplates] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestEMailTemplates] ADD  CONSTRAINT [DF_BestEMailTemplates_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestEMailTemplates] ADD  CONSTRAINT [DF_BestEMailTemplates_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestEMailTemplates] ADD  CONSTRAINT [DF_BestEMailTemplates_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestPaymentDetails]    Script Date: 04/17/2011 21:24:48 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestPaymentDetails](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[studentGuid] [uniqueidentifier] NULL,
+	[paymentTypeGuid] [uniqueidentifier] NULL,
+	[paymentDate] [datetime] NULL,
+	[amount] [decimal](18, 0) NULL,
+ CONSTRAINT [PK_BestPaymentDetails] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestPaymentDetails] ADD  CONSTRAINT [DF_paymentDetails_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestPaymentDetails] ADD  CONSTRAINT [DF_paymentDetails_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestPaymentDetails] ADD  CONSTRAINT [DF_paymentDetails_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestPaymentTypes]    Script Date: 04/17/2011 21:24:56 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestPaymentTypes](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[paymentType] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_BestPaymentTypes] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestPaymentTypes] ADD  CONSTRAINT [DF_BestPaymentTypes_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestPaymentTypes] ADD  CONSTRAINT [DF_BestPaymentTypes_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestPaymentTypes] ADD  CONSTRAINT [DF_BestPaymentTypes_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestProgamTypes]    Script Date: 04/17/2011 21:25:04 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestProgamTypes](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[programType] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_BestProgamTypes] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestProgamTypes] ADD  CONSTRAINT [DF_BProgTypes_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestProgamTypes] ADD  CONSTRAINT [DF_BProgTypes_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestProgamTypes] ADD  CONSTRAINT [DF_BProgTypes_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestPrograms]    Script Date: 04/17/2011 21:25:12 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestPrograms](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[programName] [varchar](50) NOT NULL,
+	[programType] [varchar](100) NOT NULL,
+	[amount] [decimal](10, 2) NULL,
+	[amountType] [varchar](50) NULL,
+ CONSTRAINT [PK_BestPrograms] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Per Week, Per Day, Per Hour' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'BestPrograms', @level2type=N'COLUMN',@level2name=N'amountType'
+GO
+
+ALTER TABLE [dbo].[BestPrograms] ADD  CONSTRAINT [DF_BestPrograms_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestPrograms] ADD  CONSTRAINT [DF_BestPrograms_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestPrograms] ADD  CONSTRAINT [DF_BestPrograms_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestSchedules]    Script Date: 04/17/2011 21:25:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestSchedules](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[tutGuid] [uniqueidentifier] NULL,
+	[stuGuid1] [uniqueidentifier] NULL,
+	[stuGuid2] [uniqueidentifier] NULL,
+	[stuGuid3] [uniqueidentifier] NULL,
+	[stuGuid4] [uniqueidentifier] NULL,
+	[stuGuid5] [uniqueidentifier] NULL,
+	[schDate] [varchar](10) NULL,
+	[schFrom] [varchar](4) NULL,
+	[schTo] [varchar](4) NULL,
+	[isDeleted] [bit] NOT NULL,
+	[attended1] [bit] NOT NULL,
+	[attended2] [bit] NOT NULL,
+	[attended3] [bit] NOT NULL,
+	[attended4] [bit] NOT NULL,
+	[attended5] [bit] NOT NULL,
+	[note1] [varchar](100) NULL,
+	[note2] [varchar](100) NULL,
+	[note3] [varchar](100) NULL,
+	[note4] [varchar](100) NULL,
+	[note5] [varchar](100) NULL,
+ CONSTRAINT [PK_BestSchedules] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestSchedules] ADD  CONSTRAINT [DF_BestSchedules_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestSchedules] ADD  CONSTRAINT [DF_BestSchedules_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestSchedules] ADD  CONSTRAINT [DF_BestSchedules_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+ALTER TABLE [dbo].[BestSchedules] ADD  CONSTRAINT [DF_BestSchedules_isDeleted]  DEFAULT ((0)) FOR [isDeleted]
+GO
+
+ALTER TABLE [dbo].[BestSchedules] ADD  CONSTRAINT [DF_BestSchedules_attended]  DEFAULT ((0)) FOR [attended1]
+GO
+
+ALTER TABLE [dbo].[BestSchedules] ADD  CONSTRAINT [DF_BestSchedules_attended2]  DEFAULT ((0)) FOR [attended2]
+GO
+
+ALTER TABLE [dbo].[BestSchedules] ADD  CONSTRAINT [DF_BestSchedules_attended3]  DEFAULT ((0)) FOR [attended3]
+GO
+
+ALTER TABLE [dbo].[BestSchedules] ADD  CONSTRAINT [DF_BestSchedules_attended4]  DEFAULT ((0)) FOR [attended4]
+GO
+
+ALTER TABLE [dbo].[BestSchedules] ADD  CONSTRAINT [DF_BestSchedules_attended5]  DEFAULT ((0)) FOR [attended5]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestServices]    Script Date: 04/17/2011 21:25:28 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestServices](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[Service] [varchar](128) NOT NULL,
+	[CenterId] [varchar](50) NULL,
+ CONSTRAINT [PK_BestServices] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestServices] ADD  CONSTRAINT [DF_BestServices_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestServices] ADD  CONSTRAINT [DF_BestServices_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestServices] ADD  CONSTRAINT [DF_BestServices_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestStudentNotes]    Script Date: 04/17/2011 21:25:36 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestStudentNotes](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[studentGuid] [uniqueidentifier] NOT NULL,
+	[noteDate] [datetime] NOT NULL,
+	[notes] [varchar](max) NULL,
+ CONSTRAINT [PK_BestStudentNotes] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestStudentNotes] ADD  CONSTRAINT [DF_BestStudentNotes_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestStudentNotes] ADD  CONSTRAINT [DF_BestStudentNotes_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestStudentNotes] ADD  CONSTRAINT [DF_BestStudentNotes_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestStudents]    Script Date: 04/17/2011 21:25:46 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestStudents](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[CenterId] [varchar](50) NOT NULL,
+	[StudentId] [varchar](50) NOT NULL,
+	[firstName] [varchar](50) NULL,
+	[lastName] [varchar](50) NULL,
+	[middleName] [varchar](50) NULL,
+	[parentName] [varchar](80) NULL,
+	[address1] [varchar](50) NULL,
+	[address2] [varchar](50) NULL,
+	[city] [varchar](50) NULL,
+	[state] [varchar](2) NULL,
+	[zip] [varchar](15) NULL,
+	[cellPhone] [varchar](15) NULL,
+	[homePhone] [varchar](15) NULL,
+	[workPhone] [varchar](15) NULL,
+	[emailId] [varchar](200) NULL,
+	[gender] [varchar](10) NULL,
+	[hours] [decimal](18, 2) NULL,
+	[amount] [decimal](18, 2) NULL,
+	[hourType] [varchar](10) NULL,
+	[amountType] [varchar](50) NULL,
+	[programGuid] [uniqueidentifier] NULL,
+	[joinDate] [datetime] NULL,
+	[birthDate] [datetime] NULL,
+ CONSTRAINT [PK_BestStudents] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestStudents] ADD  CONSTRAINT [DF_BStudents_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestStudents] ADD  CONSTRAINT [DF_BStudents_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestStudents] ADD  CONSTRAINT [DF_BStudents_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestTutors]    Script Date: 04/17/2011 21:25:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestTutors](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[TutorId] [varchar](50) NOT NULL,
+	[firstName] [varchar](50) NULL,
+	[lastName] [varchar](50) NULL,
+	[middleName] [varchar](50) NULL,
+	[address1] [varchar](50) NULL,
+	[address2] [varchar](50) NULL,
+	[city] [varchar](50) NULL,
+	[state] [varchar](2) NULL,
+	[zip] [varchar](15) NULL,
+	[cellPhone] [varchar](15) NULL,
+	[homePhone] [varchar](15) NULL,
+	[workPhone] [varchar](15) NULL,
+	[emailId] [varchar](200) NULL,
+	[gender] [varchar](10) NULL,
+	[joinDate] [datetime] NULL,
+ CONSTRAINT [PK_BestTutors] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestTutors] ADD  CONSTRAINT [DF_BTutors_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestTutors] ADD  CONSTRAINT [DF_BTutors_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestTutors] ADD  CONSTRAINT [DF_BTutors_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestUserRoles]    Script Date: 04/17/2011 21:26:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestUserRoles](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[Service] [varchar](128) NOT NULL,
+	[userName] [varchar](128) NOT NULL,
+	[allowAdd] [bit] NOT NULL,
+	[allowView] [bit] NOT NULL,
+	[allowEdit] [bit] NOT NULL,
+	[allowDelete] [bit] NOT NULL,
+ CONSTRAINT [PK_BestUserRoles] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestUserRoles] ADD  CONSTRAINT [DF_BestUserRoles_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestUserRoles] ADD  CONSTRAINT [DF_BestUserRoles_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestUserRoles] ADD  CONSTRAINT [DF_BestUserRoles_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+ALTER TABLE [dbo].[BestUserRoles] ADD  CONSTRAINT [DF_BestUserRoles_allowAdd]  DEFAULT ((0)) FOR [allowAdd]
+GO
+
+ALTER TABLE [dbo].[BestUserRoles] ADD  CONSTRAINT [DF_BestUserRoles_allowView]  DEFAULT ((0)) FOR [allowView]
+GO
+
+ALTER TABLE [dbo].[BestUserRoles] ADD  CONSTRAINT [DF_BestUserRoles_allowEdit]  DEFAULT ((0)) FOR [allowEdit]
+GO
+
+ALTER TABLE [dbo].[BestUserRoles] ADD  CONSTRAINT [DF_BestUserRoles_allowDelete]  DEFAULT ((0)) FOR [allowDelete]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[BestUsers]    Script Date: 04/17/2011 21:26:11 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BestUsers](
+	[guidfield] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
+	[lastChange] [datetime] NOT NULL,
+	[lastChangeUser] [varchar](128) NOT NULL,
+	[userName] [varchar](128) NOT NULL,
+	[password] [varchar](128) NULL,
+	[tempPwd] [varchar](50) NULL,
+	[passwordExpiration] [datetime] NULL,
+	[firstName] [varchar](50) NULL,
+	[lastName] [varchar](50) NULL,
+	[middleName] [varchar](50) NULL,
+	[address1] [varchar](50) NULL,
+	[address2] [varchar](50) NULL,
+	[city] [varchar](50) NULL,
+	[state] [varchar](2) NULL,
+	[zip] [varchar](15) NULL,
+	[cellPhone] [varchar](15) NULL,
+	[homePhone] [varchar](15) NULL,
+	[workPhone] [varchar](15) NULL,
+	[emailId] [varchar](200) NULL,
+	[securityQuestion1] [varchar](300) NULL,
+	[answer1] [nchar](10) NULL,
+	[securityQuestion2] [varchar](300) NULL,
+	[answer2] [nchar](10) NULL,
+	[gender] [varchar](10) NULL,
+	[Centers] [varchar](1000) NULL,
+	[userType] [varchar](50) NULL,
+	[passwordExpiredDate] [datetime] NULL,
+ CONSTRAINT [PK_BestUsers] PRIMARY KEY CLUSTERED 
+(
+	[guidfield] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[BestUsers] ADD  CONSTRAINT [DF_BestUsers_guidfield]  DEFAULT (newsequentialid()) FOR [guidfield]
+GO
+
+ALTER TABLE [dbo].[BestUsers] ADD  CONSTRAINT [DF_BestUsers_lastChange]  DEFAULT (getdate()) FOR [lastChange]
+GO
+
+ALTER TABLE [dbo].[BestUsers] ADD  CONSTRAINT [DF_BestUsers_lastChangeUser]  DEFAULT (app_name()) FOR [lastChangeUser]
+GO
+
+
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',1.Programs',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',2.Students',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',3.Tutors',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',4.Payments',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',5.Schedules',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',6.Setup',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Payment - Details',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Payment - Reports',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Payment - Types',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Program - Information',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Program - Types',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Schedules - Attendance',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Setup - Center Information',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Setup - EMail Template',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Setup - Services',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Setup - User Roles',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Setup - Users',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Student - Information',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Student - Notes',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Student - Reports',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Tutor - Information',1,1,1,1);
+insert into BestUserRoles (username,service,allowadd,allowview,allowedit,allowdelete) values ('Balaji',Tutor - Reports',1,1,1,1);
+
+
+USE [BEST]
+GO
+
+/****** Object:  Table [dbo].[LogChanges]    Script Date: 04/21/2011 19:44:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[LogChanges](
+	[tablename] [varchar](50) NOT NULL,
+	[guidfield] [uniqueidentifier] NOT NULL,
+	[fieldname] [varchar](50) NOT NULL,
+	[oldValue] [varchar](6000) NULL,
+	[newValue] [varchar](6000) NULL,
+	[changeDate] [datetime] NOT NULL,
+	[changedBy] [varchar](228) NULL,
+	[changeType] [char](1) NOT NULL,
+	[co] [varchar](10) NULL,
+	[id] [varchar](10) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[LogChanges] ADD  CONSTRAINT [DF_LogChangesS1_fieldName]  DEFAULT ('') FOR [fieldname]
+GO
+
+ALTER TABLE [dbo].[LogChanges] ADD  CONSTRAINT [DF_LogChangesS1_changeDate]  DEFAULT (getdate()) FOR [changeDate]
+GO
+
+ALTER TABLE [dbo].[LogChanges] ADD  CONSTRAINT [DF_LogChangesS1_changedBy]  DEFAULT (app_name()) FOR [changedBy]
+GO
+
+ALTER TABLE [dbo].[LogChanges] ADD  CONSTRAINT [DF_LogChangesS1_changeType]  DEFAULT ('?') FOR [changeType]
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  View [dbo].[VBestSchedulesAndPayments]    Script Date: 04/21/2011 19:46:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE View [dbo].[VBestSchedulesAndPayments] As
+Select 
+	BestSchedules.guidfield,
+	BestSchedules.stuGuid1 as studentGuid, 
+	BestSchedules.schDate,
+	BestSchedules.schFrom, 
+	BestSchedules.schTo,
+	BestSchedules.attended1,
+	'Scheduled' as tranType
+ from BestSchedules
+ union all
+ Select 
+	BestSchedules.guidfield,
+	BestSchedules.stuGuid2, 
+	BestSchedules.schDate, 
+	BestSchedules.schFrom, 
+	BestSchedules.schTo,
+	BestSchedules.attended2,
+	'Scheduled' as tranType
+ from BestSchedules where BestSchedules.stuGuid2 is not null
+ union all
+ Select 
+	BestSchedules.guidfield,
+	BestSchedules.stuGuid3, 
+	BestSchedules.schDate, 
+	BestSchedules.schFrom, 
+	BestSchedules.schTo,
+	BestSchedules.attended3,
+	'Scheduled' as tranType
+ from BestSchedules where BestSchedules.stuGuid3 is not null
+ union all
+ Select 
+	BestSchedules.guidfield,
+	BestSchedules.stuGuid4, 
+	BestSchedules.schDate, 
+	BestSchedules.schFrom, 
+	BestSchedules.schTo,
+	BestSchedules.attended4,
+	'Scheduled' as tranType
+ from BestSchedules where BestSchedules.stuGuid4 is not null
+ union all
+ Select 
+	BestSchedules.guidfield,
+	BestSchedules.stuGuid5, 
+	BestSchedules.schDate, 
+	BestSchedules.schFrom, 
+	BestSchedules.schTo,
+	BestSchedules.attended5,
+	'Scheduled' as tranType
+ from BestSchedules where BestSchedules.stuGuid5 is not null
+union all
+Select
+	BestPaymentDetails.guidfield,
+	BestPaymentDetails.studentGuid,
+	str(year(BestPaymentDetails.paymentDate),4) + 
+	case when len(ltrim(str(month(BestPaymentDetails.paymentDate))))=1 then '0'+str(month(BestPaymentDetails.paymentDate),1) else str(month(BestPaymentDetails.paymentDate),2) end + 
+	case when len(ltrim(str(day(BestPaymentDetails.paymentDate))))=1 then '0'+str(day(BestPaymentDetails.paymentDate),1) else str(day(getDate()),2) end as schDate,
+	'' as schfrom,
+	'' as schto,
+	1 as attended,
+	'Payment' as tranType
+from BestPaymentDetails	
+	 
+ 
+
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Best_CreateTriggers]    Script Date: 04/21/2011 19:46:50 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+--Creates triggers on the specified table to log all the changes made
+Create PROC [dbo].[Best_CreateTriggers]
+	@tablename varchar(100)
+AS
+
+	if exists (	select * from sysobjects where id = object_id(N'[dbo].[' + @tablename + '_Delete]') and OBJECTPROPERTY(id, N'IsTrigger') = 1)
+	Begin
+		exec('DROP TRIGGER ' + @tablename + '_Delete')
+	End
+	if exists (	select * from sysobjects where id = object_id(N'[dbo].[' + @tablename + '_Update]') and OBJECTPROPERTY(id, N'IsTrigger') = 1)
+	Begin
+		exec('DROP TRIGGER ' + @tablename + '_Update')
+	End
+	if exists (	select * from sysobjects where id = object_id(N'[dbo].[' + @tablename + '_Insert]') and OBJECTPROPERTY(id, N'IsTrigger') = 1)
+	Begin
+		exec('DROP TRIGGER ' + @tablename + '_Insert')
+	End
+	if exists (	select * from sysobjects where id = object_id(N'[dbo].[' + @tablename + '_InsertUpdate]') and OBJECTPROPERTY(id, N'IsTrigger') = 1)
+	Begin
+		exec('DROP TRIGGER ' + @tablename + '_InsertUpdate')
+	End
+
+
+
+	declare @updsql1 varchar(8000)
+	declare @updsql2 varchar(8000)
+	declare @updsql3 varchar(8000)
+	declare @updsql4 varchar(8000)
+	set @updsql1 = ''
+	set @updsql2 = ''
+	set @updsql3 = ''
+	set @updsql4 = ''
+	
+	declare @deletesql1 varchar(8000)
+	declare @deletesql2 varchar(8000)
+	declare @deletesql3 varchar(8000)
+	declare @deletesql4 varchar(8000)
+	set @deletesql1 = ''
+	set @deletesql2 = ''
+	set @deletesql3 = ''
+	set @deletesql4 = ''
+	
+	declare @insertsql varchar(8000)
+	declare @crlf varchar(4)
+	declare @tstring varchar(3000)
+	declare @tstring2 varchar(3000)
+	declare @extraFields varchar(100), @extraSelect varchar(100),@extraDelete varchar(100)
+	set @extraFields = '' set @extraSelect = ''
+	set @extraDelete = ''
+			-- Determine the optional fields to put in the log
+		IF EXISTS( SELECT * FROM syscolumns WHERE id = object_id(@tablename) AND name = 'co')
+		BEGIN
+			SET @extraFields = ',co'
+			SET @extraSelect = ',inserted.co'
+			SET @extraDelete = ',deleted.co'
+			IF EXISTS( SELECT * FROM syscolumns WHERE id = object_id(@tablename) AND name = 'id')
+			BEGIN
+				SET @extraFields = ',co,id'
+				SET @extraSelect = ',inserted.co,inserted.id'
+				SET @extraDelete = ',deleted.co,deleted.id'
+			END
+		END
+		
+    set @tstring = ''	
+	set @crlf = char(13)+char(10)
+	set @updsql1 = 'CREATE TRIGGER ' + @tablename + '_Update ON dbo.' + @tablename + ' FOR UPDATE AS ' + @crlf + 'UPDATE ' + @tablename + ' SET ' + @tablename + '.lastChange = GETDATE(), lastChangeUser = APP_NAME() FROM ' + @tablename + ', inserted WHERE ' + @tablename + '.ROWGUIDCOL = inserted.ROWGUIDCOL' + @crlf + @crlf
+	set @deletesql1 = 'CREATE TRIGGER ' + @tablename + '_DELETE ON dbo.' + @tablename + ' FOR DELETE AS ' + @crlf 
+	set @insertsql = 	'CREATE TRIGGER ' + @tablename + '_Insert ON dbo.' + @tablename + ' FOR INSERT AS ' + @crlf + @crlf + '  insert into LogChanges(tablename, guidfield, changetype' + @extraFields + ')' + @crlf + '   select ''' + @tablename + ''', inserted.ROWGUIDCOL, ''I'' ' + @extraSelect + ' from inserted'
+	declare @fieldname sysname
+	declare @fieldlen smallint
+	declare @fieldtype sysname
+			declare colcursor cursor local scroll for
+			select syscolumns.name, syscolumns.length, systypes.name
+			from syscolumns, systypes
+			where syscolumns.id = object_id(@tablename) 
+			and syscolumns.xtype = systypes.xusertype 
+			and systypes.xtype = systypes.xusertype
+			and syscolumns.name <> 'lastChange'
+			and syscolumns.name <> 'lastChangeUser'
+			and syscolumns.name <> 'guidfield'
+			and systypes.name not in ('binary', 'image', 'nchar', 'ntext', 'nvarchar', 'text', 'varbinary')
+			and COLUMNPROPERTY( syscolumns.id ,syscolumns.name, 'IsComputed') <> 1 --removes computed columns
+		open colcursor
+		fetch next from colcursor into @fieldname, @fieldlen, @fieldtype	
+			while @@fetch_status = 0
+			begin 
+				if @fieldtype in ('char', 'varchar') and (@fieldlen > 3000 or @fieldlen = -1)
+				begin
+					set @tstring = 	'    if update(' + @fieldname + ')' + @crlf + '    insert into LogChanges(tablename, guidfield, fieldname, oldvalue, newvalue, changetype' + @extraFields + ') ' + @crlf + 	'    select ''' + @tablename + ''', inserted.ROWGUIDCOL, ''' + @fieldname + ''', left(deleted.' + @fieldname + ',3000), left(inserted.' + @fieldname + ',3000), ''U'' ' + @extraSelect + @crlf + '    from inserted, deleted where inserted.ROWGUIDCOL = deleted.ROWGUIDCOL' + @crlf + @crlf
+					set @tstring2 = '    insert into LogChanges(tablename, guidfield, fieldname, oldvalue, changetype' + @extraFields + ') ' + @crlf + 
+						'    select ''' + @tablename + ''', deleted.ROWGUIDCOL, ''' + @fieldname + ''', left(deleted.' + @fieldname + ',3000), ''D'' '  + @extraDelete + @crlf +
+						'    from deleted ' + @crlf +
+						'    where deleted.' + @fieldname + ' is not null ' + @crlf + @crlf
+				end
+				else
+				begin
+					if @fieldtype in ('xml') 
+					begin
+						set @tstring = 	'    if update(' + @fieldname + ')' + @crlf + '    insert into LogChanges(tablename, guidfield, fieldname, oldvalue, newvalue, changetype' + @extraFields + ') ' + @crlf + 	'    select ''' + @tablename + ''', inserted.ROWGUIDCOL, ''' + @fieldname + ''', left(cast(deleted.' + @fieldname + ' as varchar(max)),3000), left(cast(inserted.' + @fieldname + ' as varchar(max)),3000), ''U'' ' + @extraSelect + @crlf + '    from inserted, deleted where inserted.ROWGUIDCOL = deleted.ROWGUIDCOL' + @crlf + @crlf
+					set @tstring2 = '    insert into LogChanges(tablename, guidfield, fieldname, oldvalue, changetype' + @extraFields + ') ' + @crlf + 
+						'    select ''' + @tablename + ''', deleted.ROWGUIDCOL, ''' + @fieldname + ''', left(cast(deleted.' + @fieldname + ' as varchar(max)),3000), ''D'' '  + @extraDelete + @crlf +
+						'    from deleted ' + @crlf +
+						'    where deleted.' + @fieldname + ' is not null ' + @crlf + @crlf
+					end 
+					else
+					begin
+					set @tstring = 	'    if update(' + @fieldname + ')' + @crlf + '    insert into LogChanges(tablename, guidfield, fieldname, oldvalue, newvalue, changetype' + @extraFields + ') ' + @crlf + 	'    select ''' + @tablename + ''', inserted.ROWGUIDCOL, ''' + @fieldname + ''', deleted.' + @fieldname + ', inserted.' + @fieldname + ', ''U'' ' + @extraSelect + @crlf + '    from inserted, deleted where inserted.ROWGUIDCOL = deleted.ROWGUIDCOL' + @crlf
+					set @tstring2 = '    insert into LogChanges(tablename, guidfield, fieldname, oldvalue, changetype' + @extraFields + ') ' + @crlf + 
+						'    select ''' + @tablename + ''', deleted.ROWGUIDCOL, ''' + @fieldname + ''', deleted.' + @fieldname + ', ''D'' ' + @extraDelete + @crlf +
+						'    from deleted ' + @crlf +
+						'    where deleted.' + @fieldname + ' is not null ' + @crlf + @crlf
+					end
+				end
+
+
+			if (len(@updsql1) + len(@tstring)) < 7999 set @updsql1 = @updsql1 + @crlf + @tstring
+			else if (len(@updsql2) + len(@tstring)) < 7999 set @updsql2 = @updsql2 + @crlf + @tstring
+			else if (len(@updsql3) + len(@tstring)) < 7999 set @updsql3 = @updsql3 + @crlf + @tstring
+			else if (len(@updsql4) + len(@tstring)) < 7999 set @updsql4 = @updsql4 + @crlf + @tstring
+			
+			if (len(@deletesql1) + len(@tstring2)) < 7999 set @deletesql1 = @deletesql1 + @crlf + @tstring2
+			else if (len(@deletesql2) + len(@tstring2)) < 7999 set @deletesql2 = @deletesql2 + @crlf + @tstring2
+			else if (len(@deletesql3) + len(@tstring2)) < 7999 set @deletesql3 = @deletesql3 + @crlf + @tstring2
+			else if (len(@deletesql4) + len(@tstring2)) < 7999 set @deletesql4 = @deletesql4 + @crlf + @tstring2
+
+		fetch next from colcursor into @fieldname, @fieldlen, @fieldtype	
+			end
+		close colcursor
+		deallocate colcursor
+
+
+exec(@updsql1 + @updsql2 + @updsql3 + @updsql4)
+exec(@deletesql1 + @deletesql2 + @deletesql3 + @deletesql4)
+exec(@insertsql)
+GO
+
+
+USE [BEST]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Best_CreateAllTriggers]    Script Date: 04/21/2011 19:47:00 ******/
+SET ANSI_NULLS OFF
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[Best_CreateAllTriggers]
+AS
+	DECLARE @name AS varchar(100)
+	DECLARE tablecursor CURSOR LOCAL SCROLL FOR
+		SELECT name FROM sysobjects WHERE OBJECTPROPERTY(id, N'IsUserTable') = 1 ORDER BY name
+	OPEN tablecursor
+	FETCH NEXT FROM tablecursor INTO @name
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+	if exists (	select * from syscolumns where id = object_id(N'[dbo].[' + @name + ']') and name = 'lastChange')
+	Begin
+print @name
+		EXEC Best_CreateTriggers @name
+	End
+
+		FETCH NEXT FROM tablecursor INTO @name
+	END
+	CLOSE tablecursor
+	DEALLOCATE tablecursor
+
+GO
+
+

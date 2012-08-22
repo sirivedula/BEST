@@ -1,0 +1,145 @@
+<html>
+<head>
+	<title>Planner</title>
+	<script type="text/javascript" src="jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="jquery-ui-1.8.9.custom.min.js"></script>
+	
+	<style>
+		.tblShow {width:100%;height:100%;}
+		.tblShow td { border-bottom:1px dashed #999; border-right:1px dashed #999;  }
+		.StudentsDiv { font-family:Georia, Tahoma; color:#333; font-size:12px; text-align:center; height:20px;width:100px; border-top:2px solid #5959AC; background-color:#CBCBE4; cursor:pointer; margin-bottom:2px;}
+		.TutorsDiv {text-align:center; border-top:3px solid #808000; background-color:#D9D9C6;width:100px;height:20px; vertical-align:top; cursor:pointer; margin-bottom:2px;}
+		.scaleeven { background-color:#ECEF7E; height:40px;}
+		.scaleodd { background-color:#B9BD17; height:40px; }
+	</style>
+	
+	<script type="text/javascript">
+		
+		var PlannerDay = 1;
+		var PlannerWeek = 2;
+		var PlannerMonth = 3;
+		
+		var PlannerData = [ {"Tutors":[ { "Name" : "Balaji", "guid" : "1234-99"}, {"Name" : "Paul", "guid" : "2121-99"}]
+							},
+							{"Students" : [ { "firstName" : "John", "lastName" : "Moore", "guid" : "0099-0099"}, 
+							                { "firstName" : "Jimmy", "lastName" : "Woods", "guid" : "9090-9090" },
+											{ "firstName" : "Carl", "lastName" : "Jones", "guid" : "990-990-990" },
+											{ "firstName" : "Nims", "lastName" : "Bali", "guid" : "90909090-9000" },
+											{ "firstName" : "John", "lastName" : "Moore", "guid" : "0099-0099"}, 
+							                { "firstName" : "Jimmy", "lastName" : "Woods", "guid" : "9090-9090" },
+											{ "firstName" : "Carl", "lastName" : "Jones", "guid" : "990-990-990" },
+											{ "firstName" : "Nims", "lastName" : "Bali", "guid" : "90909090-9000" },
+											{ "firstName" : "John", "lastName" : "Moore", "guid" : "0099-0099"}, 
+							                { "firstName" : "Jimmy", "lastName" : "Woods", "guid" : "9090-9090" },
+											{ "firstName" : "Carl", "lastName" : "Jones", "guid" : "990-990-990" },
+											{ "firstName" : "Nims", "lastName" : "Bali", "guid" : "90909090-9000" },
+											{ "firstName" : "John", "lastName" : "Moore", "guid" : "0099-0099"}, 
+							                { "firstName" : "Jimmy", "lastName" : "Woods", "guid" : "9090-9090" },
+											{ "firstName" : "Carl", "lastName" : "Jones", "guid" : "990-990-990" },
+											{ "firstName" : "Nims", "lastName" : "Bali", "guid" : "90909090-9000" },
+											{ "firstName" : "John", "lastName" : "Moore", "guid" : "0099-0099"}, 
+							                { "firstName" : "Jimmy", "lastName" : "Woods", "guid" : "9090-9090" },
+											{ "firstName" : "Carl", "lastName" : "Jones", "guid" : "990-990-990" },
+											{ "firstName" : "Nims", "lastName" : "Bali", "guid" : "90909090-9000" },
+											{ "firstName" : "John", "lastName" : "Moore", "guid" : "0099-0099"}, 
+							                { "firstName" : "Jimmy", "lastName" : "Woods", "guid" : "9090-9090" },
+											{ "firstName" : "Carl", "lastName" : "Jones", "guid" : "990-990-990" },
+											{ "firstName" : "Nims", "lastName" : "Bali", "guid" : "90909090-9000" },
+											{ "firstName" : "John", "lastName" : "Moore", "guid" : "0099-0099"}, 
+							                { "firstName" : "Jimmy", "lastName" : "Woods", "guid" : "9090-9090" },
+											{ "firstName" : "Carl", "lastName" : "Jones", "guid" : "990-990-990" },
+											{ "firstName" : "Nims", "lastName" : "Bali", "guid" : "90909090-9000" }] 
+							},
+							{"Schedules" : [{ "guid" : "123-321-123", "STGuid" : "9090-9090", "TUGuid" : "2121-99", "Date" : "03/01/2011", "Time" : "14:00" }]
+							}
+						];
+		
+		var BestPlanner = function(){
+			var plannerMode;	//Day, Week, Month
+			var showDay;
+			var beginTime = 6;
+			var endTime = 22;
+			return {
+				TestMe : function(){
+					alert(this.plannerMode + ';' + this.showDay);
+				}
+				, FilterStudent : function(stuDiv){
+					var idx = stuDiv.id.split('_')[1];
+					var students = BestPlanner.getStudentInfo();
+					var curStudent = students[idx];
+					alert(curStudent.firstName + ' ' + curStudent.lastName + ' ' + curStudent.guid);
+				}
+				
+				, getStudentInfo : function(){
+					return PlannerData[1].Students;
+				}
+				
+				, getTutorInfo : function(){
+					return PlannerData[0].Tutors;
+				}
+				
+				, getScheduleInfo : function(){
+					return PlannerData[2].Schedules;
+				}
+				
+				, Show : function(){
+					if (this.plannerMode = PlannerDay){						
+						var studentsHtml = '';
+						var students = BestPlanner.getStudentInfo();
+						for(var x in students){
+							studentsHtml += '<div class="StudentsDiv" onclick="BestPlanner.FilterStudent(this);" id="STDiv_' + x + '">' + students[x].firstName + ' ' + students[x].lastName + '</div>';
+						}
+						
+						var tutorsHtml = '';
+						var tutors = BestPlanner.getTutorInfo();
+						for(var x in tutors){
+							tutorsHtml += '<div class="TutorsDiv" id="TUDiv_' + x + '">' + tutors[x].Name + '</div>';
+						}
+						$('#tdRest').html('<div>' + tutorsHtml + studentsHtml + '</div>');
+						
+						
+						var plannerHtml = '<table style="width:100%;height:100%;" cellspacing="0" cellpadding="0" border="0"><tr><td style="font-size:12px; background-color:#B9BD17; text-align:center;" colspan="2">' + this.showDay + '</td></tr>';
+						for(var tslice=beginTime; tslice<=endTime; tslice++){							
+							var divclass = (tslice%2==0)?"scaleeven" : "scaleodd";
+							plannerHtml += '<tr><td style="font-size:11px; background-color:#ECEF7E; text-align:right; padding-right:2px; width:40px; border-top:1px dashed #000; border-right:1px dashed #333;">' + ((tslice%12 == 0)?"12:00" : tslice%12 + ':00') + '</td><td style="width:97%;"><div class="' + divclass + '" id="Slice_' + tslice + '">&nbsp;</div></td></tr>';
+						}
+						plannerHtml += '</table>'
+						$('#tdPlanner').html(plannerHtml);
+					}
+				}
+				
+				, Refresh : function(){
+					
+				}
+				
+				
+			} // end return
+		} (); // end Best Planner function object
+	
+		$(document).ready(function(){
+			BestPlanner.plannerMode = PlannerDay;
+			BestPlanner.showDay = new Date();
+			BestPlanner.Show();
+			
+		});
+		
+	</script>
+</head>
+<body style="text-align:center;">
+	<div style="width:100%;text-align:center;">
+		<table style="width:80%;font-family:Tahoma;font-size:11px;" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td colspan="2">Navigation Options Previsous Day/Week/Month => Next Day/Week/Month And Day Month Week</td>
+			</tr>
+			<tr>
+				<td id="tdPlanner" style="vertical-align:top;">
+					<div id="divPlanner" style="height:800px;border:1px solid #999;background-color:#E9E9F3;">Planner Drawn Area</div>
+				</td>
+				<td style="vertical-align:top;" id="tdRest">Students & Tutors Area</td>
+			</tr>
+		</table>
+		
+	</div>
+	
+</body>
+</html>
